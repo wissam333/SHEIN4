@@ -123,6 +123,7 @@ const previewImage = (event) => {
 }
 </script>
 <style lang="scss" scoped>
+@import "../assets/var.scss";
 .gradient-custom-2 {
     overflow-x: hidden;
     background: linear-gradient(to right, rgb(1 61 41), rgb(255 255 255));
@@ -187,7 +188,7 @@ const previewImage = (event) => {
                 cursor: pointer;
 
                 &.active {
-                    border: 2px solid #013d29;
+                    border: 2px solid $basic;
                 }
 
                 span {

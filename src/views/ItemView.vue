@@ -122,6 +122,7 @@ let singleItem = computed(() => {
 </script>
 
 <style lang="scss" scoped>
+@import "../assets/var.scss";
 hr {
     margin: 1.5rem 0;
 }
@@ -178,7 +179,7 @@ hr {
                 }
 
                 .price {
-                    color: #013d29;
+                    color: $basic;
                     font-size: 18px;
                     font-weight: 700;
                     margin-top: 20px;
@@ -206,7 +207,7 @@ hr {
                         cursor: pointer;
 
                         &.active {
-                            border: 2px solid #013d29;
+                            border: 2px solid $basic;
                         }
 
                         span {
@@ -296,7 +297,7 @@ hr {
 
                     .buy_now {
                         margin-right: 20px;
-                        background-color: #013d29;
+                        background-color: $basic;
                         color: #fff;
                         border: none;
                     }
@@ -307,12 +308,12 @@ hr {
                         transition: all 0.3s ease-in-out;
 
                         &.Added {
-                            background-color: #013d29;
+                            background-color: $basic;
                             color: #fff;
                         }
 
                         &:hover {
-                            background-color: #013d29;
+                            background-color: $basic;
                             color: #fff;
                         }
                     }
@@ -344,7 +345,7 @@ hr {
                     display: flex;
 
                     i {
-                        color: #ff7006;
+                        color: $second;
                         margin-right: 10px;
                     }
 

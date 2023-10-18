@@ -52,6 +52,7 @@ onMounted(() => {
 })
 </script>
 <style lang="scss" scoped>
+@import "../assets/var.scss";
 .category {
     padding-top: 80px;
     margin-bottom: 100px;

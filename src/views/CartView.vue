@@ -97,6 +97,7 @@ const { filterd, Subtotal, itemCount } = storeToRefs(getItems);
 //end store
 </script>
 <style lang="scss" scoped>
+@import "../assets/var.scss";
 .cart_page {
   display: flex;
   background-color: #eee;
@@ -226,7 +227,7 @@ const { filterd, Subtotal, itemCount } = storeToRefs(getItems);
               cursor: pointer;
 
               .bi-heart-fill {
-                color: red;
+                color: $second;
               }
 
               .bi-heart {
@@ -237,7 +238,7 @@ const { filterd, Subtotal, itemCount } = storeToRefs(getItems);
         }
 
         .price {
-          color: #013d29;
+          color: $basic;
           width: 100px;
           text-align: center;
           font-weight: 700;
@@ -267,7 +268,7 @@ const { filterd, Subtotal, itemCount } = storeToRefs(getItems);
 
         .dollars {
           margin: 0;
-          color: #013d29;
+          color: $basic;
         }
       }
 
@@ -286,7 +287,7 @@ const { filterd, Subtotal, itemCount } = storeToRefs(getItems);
         padding: 10px 20px;
         border-radius: 30px;
         border: none;
-        background-color: #013d29;
+        background-color: $basic;
         color: #fff;
         margin-top: 20px;
       }

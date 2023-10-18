@@ -170,10 +170,16 @@ const order = () => {
   item.style.opacity = '0';
   cardDetails.style.opacity = '0';
   fadeContainer.style.opacity = '1';
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
 };
 </script>
 <style lang="scss" scoped>
+@import "../assets/var.scss";
 .checkout {
+  position: relative;
   background-color: #eee;
   padding: 20px;
   .fade-enter-active,
@@ -282,7 +288,7 @@ const order = () => {
             cursor: pointer;
 
             .bi-heart-fill {
-              color: red;
+              color: $second;
             }
 
             .bi-heart {
@@ -293,7 +299,7 @@ const order = () => {
       }
 
       .price {
-        color: #013d29;
+        color: $basic;
         width: 100px;
         text-align: center;
         font-weight: 700;
@@ -334,7 +340,7 @@ const order = () => {
       padding: 10px 20px;
       border-radius: 30px;
       border: none;
-      background-color: #013d29;
+      background-color: $basic;
       color: #fff;
       margin-top: 20px;
     }
@@ -348,7 +354,7 @@ const order = () => {
       left: 50%;
       top: 25%;
       font-size: 30px;
-      color: red !important;
+      color: $second !important;
       font-weight: bold;
       text-wrap: nowrap;
       text-align: center;
@@ -358,7 +364,7 @@ const order = () => {
       position: absolute;
       transform: translate(-50%, -50%);
       left: 50%;
-      top: 40%;
+      top: 10%;
       img {
         width: 100%;
       }
@@ -378,12 +384,12 @@ const order = () => {
       position: absolute;
       left: 50%;
       transform: translate(-50%, -50%);
-      top: 60%;
+      top: 30%;
       text-align: center;
       text-wrap: nowrap;
       i {
         font-size: 70px;
-        color: #013d29;
+        color: $basic;
       }
       h4 {
         font-weight: bold;

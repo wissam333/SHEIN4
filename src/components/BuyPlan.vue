@@ -57,6 +57,7 @@ onMounted(() => {
 })
 </script>
 <style lang="scss" scoped>
+@import "../assets/var.scss";
 .BuyPlan {
     padding-top: 80px;
     padding-bottom: 80px;
@@ -119,7 +120,7 @@ onMounted(() => {
                 .price {
                     font-size: 50px;
                     font-weight: 700;
-                    color: #013d29;
+                    color: $basic;
                 }
 
                 .desc {

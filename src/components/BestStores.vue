@@ -78,6 +78,7 @@ onMounted(() => {
 })
 </script>
 <style lang="scss" scoped>
+@import "../assets/var.scss";
 .best_stores {
     margin-top: 80px;
     margin-bottom: 80px;
@@ -167,7 +168,7 @@ onMounted(() => {
 
                     .time {
                         font-size: 12px;
-                        color: #c34482;
+                        color: $second;
                         margin-top: 10px;
 
                         @media (max-width: 991px) {

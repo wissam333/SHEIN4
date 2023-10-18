@@ -314,6 +314,7 @@ onMounted(() => {
 });
 </script>
 <style lang="scss" scoped>
+@import "../assets/var.scss";
 .appNavbar {
   height: 84px;
   background-color: #a3d2e6;
@@ -419,8 +420,8 @@ onMounted(() => {
                     bottom: 0;
                     left: 0;
                     width: 100%;
-                    height: 1px;
-                    background-color: #000;
+                    height: 2px;
+                    background-color: $second;
                   }
                 }
 
@@ -464,8 +465,9 @@ onMounted(() => {
                             }
 
                             &:last-child {
-                              color: #666690;
-                              font-size: 14px;
+                              color: $second;
+                              font-size: 12px;
+                              font-weight: 500;
                             }
                           }
                         }
@@ -520,7 +522,7 @@ onMounted(() => {
               font-size: 14px;
               top: 12px;
               color: #fff;
-              background: #013d29;
+              background: $basic;
               width: 20px;
               display: flex;
               border-radius: 50%;
@@ -572,7 +574,7 @@ onMounted(() => {
         }
 
         .sum {
-          color: #b12704;
+          color: $second;
           font-size: 16px;
           font-weight: 700;
         }

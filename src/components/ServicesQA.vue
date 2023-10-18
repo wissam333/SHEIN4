@@ -45,6 +45,7 @@ onMounted(() => {
 })
 </script>
 <style lang="scss" scoped>
+@import "../assets/var.scss";
 .Services {
     padding-top: 80px;
     padding-bottom: 80px;

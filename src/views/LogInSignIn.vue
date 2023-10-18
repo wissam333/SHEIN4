@@ -223,11 +223,12 @@ onMounted(() => {
 });
 </script>
 <style lang="scss" scoped>
+@import "../assets/var.scss";
 /* import mdb */
 @import '../../node_modules/mdb-vue-ui-kit/css/mdb.min.css';
 .socials{
   i{
-    color: #013d29;
+    color: $basic;
   }
 }
 .log-sign-form {
@@ -235,7 +236,7 @@ onMounted(() => {
   min-height: calc(100vh - (84px + 30px));
 }
 .title {
-  color: #013d29;
+  color: $basic;
 }
 
 input {
@@ -243,7 +244,7 @@ input {
 }
 
 button[type='submit'] {
-  background-color: #013d29;
+  background-color: $basic;
 }
 
 i {
@@ -255,13 +256,13 @@ i {
     padding: 10px 15px;
 
     &.active {
-      border-bottom: 3px solid #013d29;
+      border-bottom: 3px solid $basic;
     }
   }
 }
 
 .error_message {
-  color: red;
+  color: $second;
   font-size: 18px;
   font-weight: 700;
 }

@@ -48,8 +48,9 @@ import AppNavbar from './components/AppNavbar.vue';
 
 </script>
 <style lang="scss" scoped>
+@import "./assets/var.scss";
 .background_container {
-  background-color: #013d29;
+  background-color: $basic;
 
   .banner {
     display: flex;
@@ -83,7 +84,7 @@ import AppNavbar from './components/AppNavbar.vue';
       .language-picker,
       .location-picker {
         select {
-          background-color: #013d29;
+          background-color: $basic;
           border: transparent;
           border-radius: 5px;
           color: #fff;

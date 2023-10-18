@@ -89,6 +89,7 @@ onMounted(() => {
 })
 </script>
 <style lang="scss" scoped>
+@import "../assets/var.scss";
 .byBrand {
     padding-top: 80px;
 
@@ -124,7 +125,7 @@ onMounted(() => {
             cursor: pointer;
 
             &:hover {
-                border: 1px solid #003d29;
+                border: 1px solid $basic;
             }
 
             .brand_img {

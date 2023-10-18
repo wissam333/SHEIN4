@@ -110,6 +110,7 @@ onMounted(() => {
 })
 </script>
 <style lang="scss" scoped>
+@import "../assets/var.scss";
 .app_footer {
     .container {
         padding: 0 40px;
@@ -170,7 +171,7 @@ onMounted(() => {
 
                         &:hover {
                             transform: translateX(10px);
-                            color: #ff5c4c;
+                            color: $basic;
                         }
                     }
                 }
@@ -226,7 +227,7 @@ onMounted(() => {
             }
 
             i {
-                color: #c34482;
+                color: $second;
                 font-size: 25px;
                 margin: 0 10px;
             }

@@ -143,6 +143,7 @@ onMounted(() => {
 });
 </script>
 <style lang="scss" scoped>
+@import "../assets/var.scss";
 .galleryDeals {
   h3 {
     padding-top: 50px;
@@ -196,7 +197,7 @@ onMounted(() => {
       cursor: pointer;
 
       &.active {
-        background-color: #013d29;
+        background-color: $basic;
         color: #fff;
         border: transparent;
       }
@@ -241,7 +242,7 @@ onMounted(() => {
         cursor: pointer;
 
         .bi-heart-fill {
-          color: red;
+          color: $second;
         }
 
         .bi-heart {
@@ -306,12 +307,12 @@ onMounted(() => {
               transition: all 0.3s ease-in-out;
 
               &:hover {
-                background-color: #013d29;
+                background-color: $basic;
                 color: #fff;
               }
 
               &.Added {
-                background-color: #013d29;
+                background-color: $basic;
                 color: #fff;
               }
             }

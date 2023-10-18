@@ -104,6 +104,7 @@ const breakpoints = ref({
 
 </script>
 <style lang="scss" scoped>
+@import "../assets/var.scss";
 .deals {
     padding-top: 80px;
 
@@ -127,7 +128,7 @@ const breakpoints = ref({
             cursor: pointer;
 
             .bi-heart-fill {
-                color: red;
+                color: $second;
             }
 
             .bi-heart {
@@ -180,7 +181,7 @@ const breakpoints = ref({
                     .starts {
                         font-size: 14px;
                         text-align: left;
-                        color: rgb(34, 181, 34);
+                        color: $second;
                     }
 
                     .addToCart {
@@ -194,12 +195,12 @@ const breakpoints = ref({
                         transition: all 0.3s ease-in-out;
 
                         &:hover {
-                            background-color: #013d29;
+                            background-color: $basic;
                             color: #fff;
                         }
 
                         &.Added {
-                            background-color: #013d29;
+                            background-color: $basic;
                             color: #fff;
                         }
                     }
