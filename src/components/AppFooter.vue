@@ -5,7 +5,7 @@
             <div class="grid_container">
                 <div class="part logo_Payments" data-aos="fade-up">
                     <div class="logo">
-                        <img src="../assets/logo.svg" alt="">
+                        <img src="../assets/logo-removebg-preview.png" alt="">
                     </div>
                     <p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat
                         duis
@@ -139,6 +139,9 @@ onMounted(() => {
                 &.logo_Payments {
                     .logo {
                         margin: 40px 0px;
+                        img{
+                            width: 300px;
+                        }
                     }
 
                     p {

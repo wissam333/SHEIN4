@@ -21,7 +21,18 @@
           </button>
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0 navigation">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 navigation w-100 justify-content-around">
+              <RouterLink to="/" class="nav-item">
+                <div
+                  v-if="mobile"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#navbarSupportedContent"
+                >
+                  Home
+                </div>
+                <div v-else>Home</div>
+              </RouterLink>
+
               <li class="nav-item">
                 <div class="dropdown">
                   <button
@@ -135,17 +146,6 @@
                   </div>
                 </div>
               </li>
-
-              <RouterLink to="/" class="nav-item">
-                <div
-                  v-if="mobile"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#navbarSupportedContent"
-                >
-                  Home
-                </div>
-                <div v-else>Home</div>
-              </RouterLink>
 
               <RouterLink to="WhatsNewView" class="nav-item">
                 <div
@@ -318,7 +318,7 @@ onMounted(() => {
   height: 84px;
   background-color: #a3d2e6;
   @media (max-width: 768px) {
-    height: 70px;
+    height: 65px;
   }
 
   .padding_container {
@@ -326,6 +326,7 @@ onMounted(() => {
     width: 100%;
     background-color: #fff;
     border-bottom: 1px solid #bbb;
+    overflow: visible;
     z-index: 100;
 
     &.sticky {
@@ -335,9 +336,11 @@ onMounted(() => {
       border-bottom: 1px solid #eee;
       box-shadow: 0px -8px 11px 0px;
       padding: 0;
+      z-index: 10000;
+    }
+    @media (max-width: 768px) {
       overflow-y: auto;
       overflow-x: hidden;
-      z-index: 10000;
     }
 
     nav {

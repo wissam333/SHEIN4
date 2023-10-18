@@ -13,7 +13,7 @@
   "dependencies": {
     "aos": "^2.3.4",
     "bootstrap": "^5.3.1",
-    "bootstrap-icons": "^1.10.5",
+    "bootstrap-icons": "^1.11.1",
     "mdb-vue-ui-kit": "^4.0.0",
     "pinia": "^2.0.36",
     "sass": "^1.62.1",

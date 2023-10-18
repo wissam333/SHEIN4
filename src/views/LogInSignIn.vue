@@ -20,7 +20,7 @@
           <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-up">
             <div class="card">
               <div class="card-body py-5 px-md-5">
-                <div class="auth_toggle d-flex justify-content-around mb-3">
+                <div class="auth_toggle d-flex justify-content-around">
                   <p
                     @click="Authentication = 'signIn'"
                     :class="Authentication == 'signIn' ? 'active' : ''"
@@ -37,7 +37,7 @@
                 <form v-if="Authentication == 'signIn'">
                   <!-- 2 column grid layout with text inputs for the first and last names -->
                   <div class="row">
-                    <div class="col-md-6 mb-4">
+                    <div class="col-md-6 mb-2">
                       <div class="form-outline">
                         <label>First name</label>
                         <input
@@ -50,7 +50,7 @@
                         />
                       </div>
                     </div>
-                    <div class="col-md-6 mb-4">
+                    <div class="col-md-6 mb-2">
                       <div class="form-outline">
                         <label for="">Last name</label>
                         <input
@@ -66,7 +66,7 @@
                   </div>
 
                   <!-- Email input -->
-                  <div class="form-outline mb-4">
+                  <div class="form-outline mb-2">
                     <label>Email address</label>
                     <input
                       type="email"
@@ -76,9 +76,22 @@
                       autocomplete="off"
                     />
                   </div>
+                  <!-- phonenumber input -->
+                  <div class="form-outline mb-2">
+                    <label>Phone Number</label>
+                    <input
+                      type="text"
+                      id="phoneNumber"
+                      class="form-control"
+                      inputmode="numeric"
+                      pattern="[0-9]*"
+                      placeholder="Enter your phone number"
+                      autocomplete="off"
+                    />
+                  </div>
 
                   <!-- Password input -->
-                  <div class="form-outline mb-4">
+                  <div class="form-outline mb-2">
                     <label>Password</label>
                     <input
                       type="password"
@@ -89,8 +102,22 @@
                     />
                   </div>
 
+                  <!--socials-->
+                  <div class="socials d-flex justify-content-center mb-3 mt-3">
+                    <button type="button" class="btn btn-secondary btn-floating mx-2">
+                      <i class="bi bi-facebook"></i>
+                    </button>
+
+                    <button type="button" class="btn btn-secondary btn-floating mx-2">
+                      <i class="bi bi-google"></i>
+                    </button>
+
+                    <button type="button" class="btn btn-secondary btn-floating mx-2">
+                      <i class="bi bi-threads"></i>
+                    </button>
+                  </div>
                   <!-- Checkbox -->
-                  <div class="form-check d-flex justify-content-center mb-4">
+                  <div class="form-check d-flex justify-content-center mb-2">
                     <input
                       class="form-check-input me-2"
                       type="checkbox"
@@ -102,26 +129,34 @@
                       Subscribe to our newsletter
                     </label>
                   </div>
-
                   <!-- Submit button -->
-                  <button type="submit" class="btn btn-primary btn-block mb-4">Sign up</button>
+                  <button type="submit" class="btn btn-primary btn-block mb-2">Sign up</button>
                   <p class="error_message"></p>
                 </form>
 
                 <form v-if="Authentication == 'logIn'">
                   <!-- Email input -->
-                  <div class="form-outline mb-4">
+                  <div class="form-outline mb-2">
                     <label>Email address</label>
+                    <input type="email" id="email" class="form-control" autocomplete="off" />
+                  </div>
+
+                  <!-- phonenumber input -->
+                  <div class="form-outline mb-2">
+                    <label>Phone Number</label>
                     <input
-                      type="email"
-                      id="form3Example3"
+                      type="text"
+                      id="phoneNumber"
                       class="form-control"
+                      inputmode="numeric"
+                      pattern="[0-9]*"
+                      placeholder="Enter your phone number"
                       autocomplete="off"
                     />
                   </div>
 
                   <!-- Password input -->
-                  <div class="form-outline mb-4">
+                  <div class="form-outline mb-2">
                     <label>Password</label>
                     <input
                       type="password"
@@ -132,7 +167,7 @@
                   </div>
 
                   <!-- Checkbox -->
-                  <div class="form-check d-flex justify-content-center mb-4">
+                  <div class="form-check d-flex justify-content-center mb-2">
                     <input
                       class="form-check-input me-2"
                       type="checkbox"
@@ -144,10 +179,24 @@
                       Subscribe to our newsletter
                     </label>
                   </div>
+                  <!--socials-->
+                  <div class="socials d-flex justify-content-center mb-3 mt-3">
+                    <button type="button" class="btn btn-secondary btn-floating mx-2">
+                      <i class="bi bi-facebook"></i>
+                    </button>
 
+                    <button type="button" class="btn btn-secondary btn-floating mx-2">
+                      <i class="bi bi-google"></i>
+                    </button>
+
+                    <button type="button" class="btn btn-secondary btn-floating mx-2">
+                      <i class="bi bi-threads"></i>
+                    </button>
+                  </div>
                   <!-- Submit button -->
-                  <button type="submit" class="btn btn-primary btn-block mb-4">Log In</button>
+                  <button type="submit" class="btn btn-primary btn-block mb-2">Log In</button>
                   <p class="error_message"></p>
+                  <p class="text-center">Forget Password?</p>
                 </form>
               </div>
             </div>
@@ -158,24 +207,29 @@
   </section>
 </template>
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted } from 'vue';
 // store
-import { account } from '../stores/counter'
-import { storeToRefs } from 'pinia'
+import { account } from '../stores/counter';
+import { storeToRefs } from 'pinia';
 
-const getAccountData = account()
-const { firstName, lastName } = storeToRefs(getAccountData)
+const getAccountData = account();
+const { firstName, lastName } = storeToRefs(getAccountData);
 // end store
-let Authentication = ref('signIn')
+let Authentication = ref('signIn');
 // import AOS
-import AOS from 'aos'
+import AOS from 'aos';
 onMounted(() => {
-  AOS.init()
-})
+  AOS.init();
+});
 </script>
 <style lang="scss" scoped>
 /* import mdb */
 @import '../../node_modules/mdb-vue-ui-kit/css/mdb.min.css';
+.socials{
+  i{
+    color: #013d29;
+  }
+}
 .log-sign-form {
   background-color: hsl(0, 0%, 96%);
   min-height: calc(100vh - (84px + 30px));
