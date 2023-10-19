@@ -5,8 +5,11 @@
         <div class="row">
           <div class="col-lg-7 card p-4 items-section">
             <div class="d-flex justify-content-between align-items-center mb-2">
-              <div>
-                <p class="mb-0">You have {{ itemCount }} items in your cart</p>
+              <div class="d-flex justify-content-between w-100">
+                <h5 class="head3">You have {{ itemCount }} items in your cart</h5>
+                <h5 class="head3">
+                  Subtotal : ${{ Subtotal.toFixed(2) - disscont + shipping + tax }}
+                </h5>
               </div>
             </div>
             <div class="items" v-for="item in filterd" :key="item.id">
@@ -28,36 +31,6 @@
               <div class="card-body">
                 <div class="d-flex justify-content-between align-items-center mb-2">
                   <h5 class="mb-0">Card details</h5>
-                </div>
-
-                <p class="small mb-2">Card type</p>
-                <div class="Payments">
-                  <div class="cards">
-                    <div class="Payments_img">
-                      <img src="../assets/Payments/Payments1.png" alt="" />
-                    </div>
-                    <div class="Payments_img">
-                      <img src="../assets/Payments/Payments2.png" alt="" />
-                    </div>
-                    <div class="Payments_img">
-                      <img src="../assets/Payments/Payments3.png" alt="" />
-                    </div>
-                    <div class="Payments_img">
-                      <img src="../assets/Payments/Payments4.png" alt="" />
-                    </div>
-                    <div class="Payments_img">
-                      <img src="../assets/Payments/Payments5.png" alt="" />
-                    </div>
-                    <div class="Payments_img">
-                      <img src="../assets/Payments/Payments6.png" alt="" />
-                    </div>
-                    <div class="Payments_img">
-                      <img src="../assets/Payments/Payments7.png" alt="" />
-                    </div>
-                    <div class="Payments_img">
-                      <img src="../assets/Payments/Payments8.png" alt="" />
-                    </div>
-                  </div>
                 </div>
 
                 <form class="mt-4">
@@ -115,22 +88,6 @@
                     </div>
                   </div>
                 </form>
-
-                <div class="d-flex justify-content-between mt-4 price-info">
-                  <p class="mb-2">Subtotal</p>
-                  <p class="mb-2">${{ Subtotal }}</p>
-                </div>
-
-                <div class="d-flex justify-content-between price-info">
-                  <p class="mb-2">Shipping</p>
-                  <p class="mb-2">$20.00</p>
-                </div>
-
-                <div class="d-flex justify-content-between mb-2 price-info">
-                  <p class="mb-2">Total(Incl. taxes)</p>
-                  <p class="mb-2">${{ Subtotal + 20 }}</p>
-                </div>
-
                 <button @click="order" type="button" class="order btn btn-info btn-block btn-lg">
                   <div class="d-flex justify-content-between">
                     <span>Place Order</span>
@@ -156,12 +113,13 @@
   </div>
 </template>
 <script setup>
+import { ref } from 'vue';
 //store
 import { getDataProduct } from '../stores/counter';
 import { storeToRefs } from 'pinia';
 
 const getItems = getDataProduct();
-const { filterd, Subtotal, itemCount } = storeToRefs(getItems);
+const { filterd, itemCount, Subtotal } = storeToRefs(getItems);
 
 const order = () => {
   const item = document.querySelector('.items-section');
@@ -175,9 +133,12 @@ const order = () => {
     behavior: 'smooth'
   });
 };
+let disscont = ref(5);
+let shipping = ref(5);
+let tax = ref(5);
 </script>
 <style lang="scss" scoped>
-@import "../assets/var.scss";
+@import '../assets/var.scss';
 .checkout {
   position: relative;
   background-color: #eee;
@@ -310,26 +271,6 @@ const order = () => {
   .card-details {
     background-color: #fff;
     color: #333 !important;
-    .Payments {
-      .cards {
-        display: grid;
-        grid-template-columns: 58px 58px 58px 58px;
-        row-gap: 20px;
-        column-gap: 10px;
-        @media (max-width: 768px) {
-          column-gap: 5px;
-        }
-        .Payments_img {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          background-color: #fff;
-          padding: 7px;
-          border: 1px solid #d9d9d9;
-          border-radius: 4px;
-        }
-      }
-    }
     .price-info {
       font-size: 18px;
       font-weight: 700;

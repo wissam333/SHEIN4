@@ -3,7 +3,7 @@
   <div class="background_img">
     <div class="full container">
       <div class="left_content">
-        <h1><span>SHEIN,</span> Where Style Comes Alive</h1>
+        <h1><img src="../assets/logo-removebg-preview.png" alt="" /> Where Style Comes Alive</h1>
         <p>
           Shopping is a bit of a relaxing hobby for me, which is sometimes troubling for the bank
           balance.
@@ -122,16 +122,21 @@ onMounted(() => {
       z-index: 2;
 
       h1 {
-        color: #333;
+        background: linear-gradient(to right, $basic, $second);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
         font-weight: bold;
         font-size: 60px;
         margin-bottom: 40px;
-        span {
-          color: $basic;
-        }
 
         @media (max-width: 768px) {
           font-size: 30px;
+        }
+        img {
+          width: 18rem;
+          @media (max-width: 768px) {
+            width: 9rem;
+          }
         }
       }
 

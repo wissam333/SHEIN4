@@ -32,7 +32,7 @@ const router = createRouter({
       component: DeliveryView
     },
     {
-      path: '/WhatsNewView',
+      path: '/WhatsNewView/',
       name: 'WhatsNewView',
       component: WhatsNewView
     },

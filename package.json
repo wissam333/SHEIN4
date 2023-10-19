@@ -17,6 +17,7 @@
     "mdb-vue-ui-kit": "^4.0.0",
     "pinia": "^2.0.36",
     "sass": "^1.62.1",
+    "starability": "^2.4.0",
     "swiper": "^9.3.2",
     "vue": "^3.3.2",
     "vue-router": "^4.2.0"

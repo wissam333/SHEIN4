@@ -2,7 +2,10 @@
   <div class="cart_page">
     <div class="Shopping_cart">
       <div class="items_inCart">
-        <h3 class="head3">Shopping Cart</h3>
+        <div class="d-flex justify-content-between">
+          <h5 class="head3">Shopping Cart</h5>
+          <h5 class="head3">Item Count : ({{ itemCount }})</h5>
+        </div>
         <hr />
         <h2 class="empty_cart" v-if="filterd.length == 0">
           Your Cart Is Empty!! You Need To Add Items :3
@@ -75,9 +78,57 @@
 
     <div class="Subtotal_ads">
       <div class="itemCount">
-        <div class="Subtotal">
-          Subtotal( {{ itemCount }} items) :
+        <h5><b> How You Will Pay? </b></h5>
+        <div class="Payments">
+          <div class="cards">
+            <div class="Payments_img">
+              <img src="../assets/Payments/Payments2.png" alt="" />
+            </div>
+            <div class="Payments_img">
+              <img src="../assets/Payments/Payments3.png" alt="" />
+            </div>
+          </div>
+          <div class="cards">
+            <div class="Payments_img">
+              <img src="../assets/Payments/Payments6.png" alt="" />
+            </div>
+          </div>
+          <div class="cards">
+            <div class="Payments_img">
+              <img src="../assets/Payments/Payments5.png" alt="" />
+            </div>
+          </div>
+          <div class="cards">
+            <div class="Payments_img">
+              <img src="../assets/Payments/Payments8.png" alt="" />
+            </div>
+          </div>
+        </div>
+        <div class="price-line">
+          <div class="Subtotal">Item(s) Total</div>
           <p class="dollars">${{ Subtotal.toFixed(2) }}</p>
+        </div>
+        <div class="price-line">
+          <div class="Subtotal">Shop Disscount</div>
+          <p class="dollars">${{ disscont }}</p>
+        </div>
+        <hr />
+        <div class="price-line">
+          <div class="Subtotal">Subtotal</div>
+          <p class="dollars">${{ Subtotal.toFixed(2) - disscont }}</p>
+        </div>
+        <div class="price-line">
+          <div class="Subtotal">Shipping</div>
+          <p class="dollars">${{ shipping }}</p>
+        </div>
+        <div class="price-line">
+          <div class="Subtotal">Tax *</div>
+          <p class="dollars">${{ tax }}</p>
+        </div>
+        <hr />
+        <div class="price-line">
+          <div class="Subtotal">Total</div>
+          <p class="dollars">${{ Subtotal.toFixed(2) - disscont + shipping + tax }}</p>
         </div>
         <div class="gift"><input type="checkbox" /> This order contains a gift</div>
         <RouterLink to="/CartCheckout">
@@ -89,15 +140,19 @@
 </template>
 <script setup>
 //store
+import { ref } from 'vue';
 import { getDataProduct } from '../stores/counter';
 import { storeToRefs } from 'pinia';
 
 const getItems = getDataProduct();
 const { filterd, Subtotal, itemCount } = storeToRefs(getItems);
 //end store
+let disscont = ref(5);
+let shipping = ref(5);
+let tax = ref(5);
 </script>
 <style lang="scss" scoped>
-@import "../assets/var.scss";
+@import '../assets/var.scss';
 .cart_page {
   display: flex;
   background-color: #eee;
@@ -107,7 +162,7 @@ const { filterd, Subtotal, itemCount } = storeToRefs(getItems);
   }
 
   .Shopping_cart {
-    width: 80%;
+    width: 70%;
     padding: 20px;
     background-color: #eee;
 
@@ -249,7 +304,7 @@ const { filterd, Subtotal, itemCount } = storeToRefs(getItems);
   }
 
   .Subtotal_ads {
-    width: 20%;
+    width: 30%;
     padding: 20px;
     background-color: #eee;
 
@@ -262,16 +317,19 @@ const { filterd, Subtotal, itemCount } = storeToRefs(getItems);
       background-color: #fff;
       padding: 20px;
 
-      .Subtotal {
-        font-size: 18px;
-        font-weight: 700;
-
+      .price-line {
+        display: flex;
+        justify-content: space-between;
+        .Subtotal {
+          font-size: 17px;
+          font-weight: 700;
+          margin-bottom: 5px;
+        }
         .dollars {
           margin: 0;
           color: $basic;
         }
       }
-
       .gift {
         display: flex;
         font-size: 14px;
@@ -279,6 +337,9 @@ const { filterd, Subtotal, itemCount } = storeToRefs(getItems);
         input {
           margin-right: 5px;
         }
+      }
+      hr {
+        margin: 0.4rem 0;
       }
 
       button {
@@ -290,6 +351,27 @@ const { filterd, Subtotal, itemCount } = storeToRefs(getItems);
         background-color: $basic;
         color: #fff;
         margin-top: 20px;
+      }
+      .Payments {
+        margin-bottom: 20px;
+        .cards {
+          display: flex;
+
+          @media (max-width: 768px) {
+          }
+          .Payments_img {
+            width: 58px;
+            height: 36px;
+            display: flex;
+            padding: 15px;
+            margin: 4px;
+            justify-content: center;
+            align-items: center;
+            background-color: #fff;
+            border: 1px solid #d9d9d9;
+            border-radius: 4px;
+          }
+        }
       }
     }
   }

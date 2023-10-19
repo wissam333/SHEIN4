@@ -147,7 +147,7 @@
                 </div>
               </li>
 
-              <RouterLink to="WhatsNewView" class="nav-item">
+              <RouterLink to="/WhatsNewView" class="nav-item">
                 <div
                   v-if="mobile"
                   data-bs-toggle="collapse"
@@ -158,7 +158,7 @@
                 <div v-else>What's New</div>
               </RouterLink>
 
-              <RouterLink to="DeliveryView" class="nav-item">
+              <RouterLink to="/DeliveryView" class="nav-item">
                 <div
                   v-if="mobile"
                   data-bs-toggle="collapse"

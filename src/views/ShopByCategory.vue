@@ -1,7 +1,20 @@
 <template>
   <section class="galleryDeals">
     <div class="container">
-      <h3 class="head3">Gallery</h3>
+      <div class="d-flex justify-content-between mt-5">
+        <h3 class="head3">Gallery</h3>
+        <div class="sort dropdown ms-auto d-inline-block">
+          <div class="btn btn-rounded dropdown-toggle" data-bs-toggle="dropdown">
+            <i class="bi bi-calendar4"></i>
+            Filter
+          </div>
+          <div class="dropdown-menu dropdown-menu-left">
+            <div class="dropdown-item">Sort By Date</div>
+            <div class="dropdown-item">Z To A List</div>
+          </div>
+        </div>
+      </div>
+
       <ul class="shuffle">
         <div class="d-flex flex-wrap align-items-center">
           <li class="filter-btn" @click="active = 'All'" :class="active == 'All' ? 'active' : ''">
@@ -143,10 +156,22 @@ onMounted(() => {
 });
 </script>
 <style lang="scss" scoped>
-@import "../assets/var.scss";
+@import '../assets/var.scss';
 .galleryDeals {
-  h3 {
-    padding-top: 50px;
+  .sort {
+    border: 1px solid $second;
+    border-radius: 25px;
+    padding: 5px 10px;
+    .dropdown-toggle {
+      border: none !important;
+      &:active {
+        border: none !important;
+      }
+      i{
+        color: $basic;
+        margin-right: 5px;
+      }
+    }
   }
   .search_field {
     position: relative;
@@ -293,7 +318,7 @@ onMounted(() => {
             .starts {
               font-size: 14px;
               text-align: left;
-              color: rgb(34, 181, 34);
+              color: $second;
             }
 
             .addToCart {
@@ -313,6 +338,7 @@ onMounted(() => {
 
               &.Added {
                 background-color: $basic;
+                border-color: $basic;
                 color: #fff;
               }
             }

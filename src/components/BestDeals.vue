@@ -196,11 +196,13 @@ const breakpoints = ref({
 
                         &:hover {
                             background-color: $basic;
+                            border-color: $basic;
                             color: #fff;
                         }
 
                         &.Added {
                             background-color: $basic;
+                            border-color: $basic;
                             color: #fff;
                         }
                     }

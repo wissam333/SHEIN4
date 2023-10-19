@@ -1,5 +1,7 @@
+@import "./var.scss";
+
 :root {
-  --swiper-pagination-color: #013d29;
+  --swiper-pagination-color: #008176;
   --swiper-pagination-bottom: 0px;
   --swiper-pagination-top: 100%;
   // --swiper-pagination-bullet-horizontal-gap: 40px;
@@ -41,7 +43,7 @@
     border-radius: 3px 0 0 3px;
 
     &:hover {
-      background-color: #013d29;
+      background-color: $basic;
       color: #fff;
     }
   }
@@ -50,7 +52,7 @@
     border-radius: 0 3px 3px 0;
 
     &:hover {
-      background-color: #013d29;
+      background-color: $basic;
       color: #fff;
     }
   }
@@ -66,7 +68,7 @@
     border-left: 1px solid #dee0ee;
     border-right: 2px solid #dee0ee;
     background: #fff;
-    color: #013d29;
+    color: $basic;
   }
 
   .quantity__minus:link,
