@@ -81,6 +81,13 @@
         <h5><b> How You Will Pay? </b></h5>
         <div class="Payments">
           <div class="cards">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="checkboxNoLabel4"
+              value=""
+              aria-label="..."
+            />
             <div class="Payments_img">
               <img src="../assets/Payments/Payments2.png" alt="" />
             </div>
@@ -89,16 +96,37 @@
             </div>
           </div>
           <div class="cards">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="checkboxNoLabel3"
+              value=""
+              aria-label="..."
+            />
             <div class="Payments_img">
               <img src="../assets/Payments/Payments6.png" alt="" />
             </div>
           </div>
           <div class="cards">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="checkboxNoLabel2"
+              value=""
+              aria-label="..."
+            />
             <div class="Payments_img">
               <img src="../assets/Payments/Payments5.png" alt="" />
             </div>
           </div>
           <div class="cards">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="checkboxNoLabel1"
+              value=""
+              aria-label="..."
+            />
             <div class="Payments_img">
               <img src="../assets/Payments/Payments8.png" alt="" />
             </div>
@@ -130,7 +158,16 @@
           <div class="Subtotal">Total</div>
           <p class="dollars">${{ Subtotal.toFixed(2) - disscont + shipping + tax }}</p>
         </div>
-        <div class="gift"><input type="checkbox" /> This order contains a gift</div>
+        <div class="gift">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            id="checkboxNoLabel7"
+            value=""
+            aria-label="..."
+          />
+          This order contains a gift
+        </div>
         <RouterLink to="/CartCheckout">
           <button>Proceed to checkout</button>
         </RouterLink>
@@ -356,6 +393,7 @@ let tax = ref(5);
         margin-bottom: 20px;
         .cards {
           display: flex;
+          align-items: center;
 
           @media (max-width: 768px) {
           }

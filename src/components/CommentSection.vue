@@ -71,7 +71,7 @@
                   />
                   <div>
                     <h6 class="fw-bold mb-1">Lily Coleman</h6>
-                    <p class="text-muted small mb-0">Shared publicly - Jan 2020</p>
+                    <p class="text-muted small mb-0">Jan 2020</p>
                   </div>
                 </div>
                 <div class="stars">
@@ -88,15 +88,16 @@
                 exercitation ullamco laboris nisi ut aliquip consequat.
               </p>
               <div class="d-flex justify-content-start">
-                <a href="#!" class="emotion d-flex align-items-center me-3">
-                  <i class="bi bi-hand-thumbs-up"></i>
+                <a @click="like = !like" class="emotion d-flex align-items-center me-3">
+                  <i v-if="like" class="bi bi-hand-thumbs-up"></i>
+                  <i v-else class="bi bi-hand-thumbs-up-fill"></i>
                   <p class="mb-0">Like</p>
                 </a>
-                <a href="#!" class="emotion d-flex align-items-center me-3">
+                <a class="emotion d-flex align-items-center me-3">
                   <i class="bi bi-chat-dots"></i>
                   <p class="mb-0">Comment</p>
                 </a>
-                <a href="#!" class="emotion d-flex align-items-center me-3">
+                <a class="emotion d-flex align-items-center me-3">
                   <i class="bi bi-reply-fill"></i>
                   <p class="mb-0">Share</p>
                 </a>
@@ -117,7 +118,7 @@
                   />
                   <div>
                     <h6 class="fw-bold mb-1">Lily Coleman</h6>
-                    <p class="text-muted small mb-0">Shared publicly - Jan 2020</p>
+                    <p class="text-muted small mb-0">Jan 2020</p>
                   </div>
                 </div>
                 <div class="stars">
@@ -134,11 +135,11 @@
                 exercitation ullamco laboris nisi ut aliquip consequat.
               </p>
               <div class="d-flex justify-content-start">
-                <a href="#!" class="emotion d-flex align-items-center me-3">
+                <a class="emotion d-flex align-items-center me-3">
                   <i class="bi bi-hand-thumbs-up"></i>
                   <p class="mb-0">Like</p>
                 </a>
-                <a href="#!" class="emotion d-flex align-items-center me-3">
+                <a class="emotion d-flex align-items-center me-3">
                   <i class="bi bi-chat-dots"></i>
                   <p class="mb-0">replay</p>
                 </a>
@@ -155,7 +156,9 @@
   </section>
 </template>
 <script setup>
+import { ref } from 'vue';
 import '../../node_modules/starability/starability-css/starability-fade.css';
+let like = ref(false);
 </script>
 <style lang="scss" scoped>
 @import '../assets/var.scss';
