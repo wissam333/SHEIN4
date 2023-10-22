@@ -42,7 +42,7 @@
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
-                    Shop By Category
+                    Products
                   </button>
 
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
@@ -147,15 +147,15 @@
                 </div>
               </li>
 
-              <RouterLink to="/WhatsNewView" class="nav-item">
+              <RouterLink to="/AboutUsFAQ" class="nav-item">
                 <div
                   v-if="mobile"
                   data-bs-toggle="collapse"
                   data-bs-target="#navbarSupportedContent"
                 >
-                  What's New
+                  FAQ
                 </div>
-                <div v-else>What's New</div>
+                <div v-else>FAQ</div>
               </RouterLink>
 
               <RouterLink to="/DeliveryView" class="nav-item">

@@ -1,37 +1,83 @@
 <!-- eslint-disable vue/require-v-for-key -->
 <template>
-  <div class="background_img">
-    <div class="full container">
-      <div class="left_content">
-        <h1><img src="../assets/logo-removebg-preview.png" alt="" /> Where Style Comes Alive</h1>
-        <p>
-          Shopping is a bit of a relaxing hobby for me, which is sometimes troubling for the bank
-          balance.
-        </p>
-        <button class="learn_more">Learn more</button>
-      </div>
+  <swiper
+    class="swiper"
+    :modules="modules"
+    :pagination="{
+      dynamicBullets: true
+    }"
+    :autoplay="{
+      delay: 2500,
+      disableOnInteraction: false
+    }"
+  >
+    <swiper-slide class="interface">
+      <div class="background_img">
+        <div class="full container">
+          <div class="left_content">
+            <h1>
+              <img src="../assets/logo-removebg-preview.png" alt="" /> Where Style Comes Alive
+            </h1>
+            <p>
+              Shopping is a bit of a relaxing hobby for me, which is sometimes troubling for the
+              bank balance.
+            </p>
+            <button class="learn_more">Learn more</button>
+          </div>
 
-      <div class="right_content container">
-        <div class="stage">
-          <img src="../assets/stage.webp" alt="" />
-        </div>
-        <div class="img_wrap">
-          <div class="other" data-aos="fade-left" data-aos-duration="1000">
-            <img src="../assets/other.webp" alt="" />
-          </div>
-          <div class="tour" data-aos="fade-left" data-aos-duration="1000">
-            <img src="../assets/tour.webp" alt="" />
-          </div>
-          <div class="electronic" data-aos="fade-left" data-aos-duration="1000">
-            <img src="../assets/electronic.webp" alt="" />
-          </div>
-          <div class="snaks" data-aos="fade-left" data-aos-duration="1000">
-            <img src="../assets/snaks.webp" alt="" />
+          <div class="right_content container">
+            <div class="stage">
+              <img src="../assets/stage.webp" alt="" />
+            </div>
+            <div class="img_wrap">
+              <div class="other" data-aos="fade-left" data-aos-duration="1000">
+                <img src="../assets/other.webp" alt="" />
+              </div>
+              <div class="tour" data-aos="fade-left" data-aos-duration="1000">
+                <img src="../assets/tour.webp" alt="" />
+              </div>
+              <div class="electronic" data-aos="fade-left" data-aos-duration="1000">
+                <img src="../assets/electronic.webp" alt="" />
+              </div>
+              <div class="snaks" data-aos="fade-left" data-aos-duration="1000">
+                <img src="../assets/snaks.webp" alt="" />
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
+    </swiper-slide>
+
+    <swiper-slide>
+      <div class="background_img">
+        <div class="full container">
+          <div class="left_content">
+            <h1>
+              <img src="../assets/logo-removebg-preview.png" alt="" /> Offers 50% off for new accounts!
+            </h1>
+            <p>
+              Shopping is a bit of a relaxing hobby for me, which is sometimes troubling for the
+              bank balance.
+            </p>
+            <button class="learn_more">Learn more</button>
+          </div>
+
+          <div class="right_content container">
+            <div class="img_wrap">
+              <div class="computer">
+                <img
+                  data-aos="fade-left"
+                  data-aos-duration="1000"
+                  src="../assets/pngwing.png"
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </swiper-slide>
+  </swiper>
 
   <TopCategories></TopCategories>
   <BestDeals></BestDeals>
@@ -80,6 +126,15 @@ import ServicesQA from '../components/ServicesQA.vue';
 import AppFooter from '../components/AppFooter.vue';
 
 import { onMounted } from 'vue';
+
+// Import Swiper
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import { Autoplay, Pagination } from 'swiper';
+const modules = [Pagination, Autoplay];
+// end Import Swiper styles
+
 // import AOS
 import AOS from 'aos';
 onMounted(() => {
@@ -88,6 +143,7 @@ onMounted(() => {
 </script>
 <style lang="scss" scoped>
 @import '../assets/var.scss';
+
 .learn_more {
   font-size: 18px;
   font-weight: 500;
@@ -191,6 +247,14 @@ onMounted(() => {
           position: absolute;
           top: 310px;
           right: 175px;
+        }
+        .computer {
+          position: absolute;
+          top: 50px;
+          right: 75px;
+          img {
+            width: 650px;
+          }
         }
       }
     }

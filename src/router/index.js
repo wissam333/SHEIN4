@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import ShopByCategory from '../views/ShopByCategory.vue'
 import DeliveryView from '../views/DeliveryView.vue'
-import WhatsNewView from '../views/WhatsNewView.vue'
+import AboutUsFAQ from '../views/AboutUsFAQ.vue'
 import CartView from '../views/CartView.vue'
 import ItemView from '../views/ItemView.vue'
 import LogInSignIn from '../views/LogInSignIn.vue'
@@ -32,9 +32,9 @@ const router = createRouter({
       component: DeliveryView
     },
     {
-      path: '/WhatsNewView/',
-      name: 'WhatsNewView',
-      component: WhatsNewView
+      path: '/AboutUsFAQ/',
+      name: 'AboutUsFAQ',
+      component: AboutUsFAQ
     },
     {
       path: '/CartView',

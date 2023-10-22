@@ -23,42 +23,84 @@
           <p>Choose a color</p>
           <div class="circles">
             <div
-              @click="active = 'color1'"
-              :class="active == 'color1' ? 'active' : ''"
+              @click="activeColorFunc('color1')"
+              :class="activeColor.includes('color1') ? 'active' : ''"
               class="circle"
             >
               <span></span>
             </div>
             <div
-              @click="active = 'color2'"
-              :class="active == 'color2' ? 'active' : ''"
+              @click="activeColorFunc('color2')"
+              :class="activeColor.includes('color2') ? 'active' : ''"
               class="circle"
             >
               <span></span>
             </div>
             <div
-              @click="active = 'color3'"
-              :class="active == 'color3' ? 'active' : ''"
+              @click="activeColorFunc('color3')"
+              :class="activeColor.includes('color3') ? 'active' : ''"
               class="circle"
             >
               <span></span>
             </div>
             <div
-              @click="active = 'color4'"
-              :class="active == 'color4' ? 'active' : ''"
+              @click="activeColorFunc('color4')"
+              :class="activeColor.includes('color4') ? 'active' : ''"
               class="circle"
             >
               <span></span>
             </div>
             <div
-              @click="active = 'color5'"
-              :class="active == 'color5' ? 'active' : ''"
+              @click="activeColorFunc('color5')"
+              :class="activeColor.includes('color5') ? 'active' : ''"
               class="circle"
             >
               <span></span>
             </div>
           </div>
         </div>
+        <hr />
+        <div class="item_sizes">
+          <p>Choose a size</p>
+          <div class="circles">
+            <div
+              @click="activeSizesFunc('size1')"
+              :class="activeSize.includes('size1') ? 'active' : ''"
+              class="circle"
+            >
+              <span>XL</span>
+            </div>
+            <div
+              @click="activeSizesFunc('size2')"
+              :class="activeSize.includes('size2') ? 'active' : ''"
+              class="circle"
+            >
+              <span>L</span>
+            </div>
+            <div
+              @click="activeSizesFunc('size3')"
+              :class="activeSize.includes('size3') ? 'active' : ''"
+              class="circle"
+            >
+              <span>M</span>
+            </div>
+            <div
+              @click="activeSizesFunc('size4')"
+              :class="activeSize.includes('size4') ? 'active' : ''"
+              class="circle"
+            >
+              <span>S</span>
+            </div>
+            <div
+              @click="activeSizesFunc('size5')"
+              :class="activeSize.includes('size5') ? 'active' : ''"
+              class="circle"
+            >
+              <span>XS</span>
+            </div>
+          </div>
+        </div>
+
         <hr />
         <div class="qty_buy">
           <div class="wrapper">
@@ -137,7 +179,7 @@
         @swiper="onSwiper"
         @slideChange="onSlideChange"
       >
-        <swiper-slide class="item" v-for="item in listItems" :key="item.id">
+        <swiper-slide class="item" v-for="item in relatedItems" :key="item.id">
           <div class="heart" @click="item.like = !item.like">
             <i v-if="!item.like" class="bi bi-heart"></i>
             <i v-if="item.like" class="bi bi-heart-fill"></i>
@@ -246,8 +288,25 @@ onMounted(() => {
 });
 
 //variables
-let active = ref('color1');
+let activeColor = ref([]);
+const activeColorFunc = (e) => {
+  let colorIndex = activeColor.value.indexOf(e);
+  if (activeColor.value.includes(e)) {
+    activeColor.value.splice(colorIndex, 1);
+  } else {
+    activeColor.value.push(e);
+  }
+};
 
+let activeSize = ref([]);
+const activeSizesFunc = (e) => {
+  let sizeIndex = activeSize.value.indexOf(e);
+  if (activeSize.value.includes(e)) {
+    activeSize.value.splice(sizeIndex, 1);
+  } else {
+    activeSize.value.push(e);
+  }
+};
 // ((( NOTE!!! : THIS IS NOT THE RIGHT WAY TO DO IT )))
 // THE RIGHT WAY IS TO FETCH PRODUCT FROM API AND USE ROUTE.PARAMS.ID AS VARAIABLE IN API LINK.
 // i used this way because im using fake api and i added 2 fields to it ,if i use the way above i need to define the 2 fields again
@@ -255,6 +314,14 @@ let active = ref('color1');
 let singleItem = computed(() => {
   return listItems.value.filter((item) => {
     if (item.id == route.params.id) {
+      return item;
+    }
+  });
+});
+
+let relatedItems = computed(() => {
+  return listItems.value.filter((item) => {
+    if (item.category ==  singleItem.value[0].category) {
       return item;
     }
   });
@@ -347,7 +414,7 @@ hr {
             cursor: pointer;
 
             &.active {
-              border: 2px solid $basic;
+              border: 2px solid $second;
             }
 
             span {
@@ -390,6 +457,68 @@ hr {
         }
       }
 
+      .item_sizes {
+        p {
+          font-weight: 600;
+          font-size: 18px;
+        }
+
+        .circles {
+          display: flex;
+          align-items: center;
+
+          .circle {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #eee;
+            border: 2px solid transparent;
+            border-radius: 50%;
+            margin: 5px;
+            cursor: pointer;
+
+            &.active {
+              border: 3px solid $second;
+            }
+
+            span {
+              display: flex;
+              justify-content: center;
+              font-weight: 500;
+            }
+
+            &:nth-child(1) {
+              width: 73px;
+              height: 73px;
+              font-size: 30px;
+            }
+
+            &:nth-child(2) {
+              width: 63px;
+              height: 63px;
+              font-size: 25px;
+            }
+
+            &:nth-child(3) {
+              width: 53px;
+              height: 53px;
+              font-size: 20px;
+            }
+
+            &:nth-child(4) {
+              width: 43px;
+              height: 43px;
+              font-size: 15px;
+            }
+
+            &:nth-child(5) {
+              width: 33px;
+              height: 33px;
+              font-size: 10px;
+            }
+          }
+        }
+      }
       .qty_buy {
         .wrapper {
           display: flex;
